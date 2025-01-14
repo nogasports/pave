@@ -168,7 +168,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
         <h3 className="text-lg font-medium text-gray-900">Personal Details</h3>
         <div>
           <label htmlFor="employeeId" className="block text-sm font-medium text-gray-700">
-            Employee ID
+            Employee ID <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
@@ -197,23 +197,29 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
             </select>
           </div>
           <div>
-            <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">First Name</label>
+            <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
+              First Name <span className="text-red-500">*</span>
+            </label>
             <input
               type="text"
               id="firstName"
               value={formData.firstName}
               onChange={(e) => setFormData(prev => ({ ...prev, firstName: e.target.value }))}
               className="input mt-1"
+              required
             />
           </div>
           <div>
-            <label htmlFor="fatherName" className="block text-sm font-medium text-gray-700">Father's Name</label>
+            <label htmlFor="fatherName" className="block text-sm font-medium text-gray-700">
+              Father's Name <span className="text-red-500">*</span>
+            </label>
             <input
               type="text"
               id="fatherName"
               value={formData.fatherName}
               onChange={(e) => setFormData(prev => ({ ...prev, fatherName: e.target.value }))}
               className="input mt-1"
+              required
             />
           </div>
           <div>
@@ -230,7 +236,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
             <label htmlFor="dateOfBirth" className="block text-sm font-medium text-gray-700">
-              Date of Birth
+              Date of Birth <span className="text-red-500">*</span>
             </label>
             <input
               type="date"
@@ -244,7 +250,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
 
           <div>
             <label htmlFor="gender" className="block text-sm font-medium text-gray-700">
-              Gender
+              Gender <span className="text-red-500">*</span>
             </label>
             <select
               id="gender"
@@ -263,7 +269,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
           <h4 className="text-sm font-medium text-gray-700 mb-2">Address</h4>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div>
-              <label htmlFor="city" className="block text-sm font-medium text-gray-700">City</label>
+              <label htmlFor="city" className="block text-sm font-medium text-gray-700">City <span className="text-red-500">*</span></label>
               <input
                 type="text"
                 id="city"
@@ -277,7 +283,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
               />
             </div>
             <div>
-              <label htmlFor="woreda" className="block text-sm font-medium text-gray-700">Woreda</label>
+              <label htmlFor="woreda" className="block text-sm font-medium text-gray-700">Woreda <span className="text-red-500">*</span></label>
               <input
                 type="text"
                 id="woreda"
@@ -291,7 +297,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
               />
             </div>
             <div>
-              <label htmlFor="houseNumber" className="block text-sm font-medium text-gray-700">House #</label>
+              <label htmlFor="houseNumber" className="block text-sm font-medium text-gray-700">House # <span className="text-red-500">*</span></label>
               <input
                 type="text"
                 id="houseNumber"
@@ -311,7 +317,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
           <h4 className="text-sm font-medium text-gray-700 mb-2">Education</h4>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div>
-              <label htmlFor="educationLevel" className="block text-sm font-medium text-gray-700">Level</label>
+              <label htmlFor="educationLevel" className="block text-sm font-medium text-gray-700">Level <span className="text-red-500">*</span></label>
               <select
                 id="educationLevel"
                 value={formData.education.level}
@@ -331,7 +337,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
               </select>
             </div>
             <div>
-              <label htmlFor="fieldOfStudy" className="block text-sm font-medium text-gray-700">Field of Study</label>
+              <label htmlFor="fieldOfStudy" className="block text-sm font-medium text-gray-700">Field of Study <span className="text-red-500">*</span></label>
               <input
                 type="text"
                 id="fieldOfStudy"
@@ -449,7 +455,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
           <h4 className="text-sm font-medium text-gray-700 mb-2">Emergency Contact</h4>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div>
-              <label htmlFor="emergencyName" className="block text-sm font-medium text-gray-700">Name</label>
+              <label htmlFor="emergencyName" className="block text-sm font-medium text-gray-700">Name <span className="text-red-500">*</span></label>
               <input
                 type="text"
                 id="emergencyName"
@@ -463,7 +469,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
               />
             </div>
             <div>
-              <label htmlFor="emergencyPhone" className="block text-sm font-medium text-gray-700">Phone</label>
+              <label htmlFor="emergencyPhone" className="block text-sm font-medium text-gray-700">Phone <span className="text-red-500">*</span></label>
               <input
                 type="tel"
                 id="emergencyPhone"
@@ -477,7 +483,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
               />
             </div>
             <div>
-              <label htmlFor="emergencyRelationship" className="block text-sm font-medium text-gray-700">Relationship</label>
+              <label htmlFor="emergencyRelationship" className="block text-sm font-medium text-gray-700">Relationship <span className="text-red-500">*</span></label>
               <input
                 type="text"
                 id="emergencyRelationship"
@@ -500,7 +506,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
             <label htmlFor="employmentType" className="block text-sm font-medium text-gray-700">
-              Employment Type
+              Employment Type <span className="text-red-500">*</span>
             </label>
             <select
               id="employmentType"
@@ -519,7 +525,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
 
           <div>
             <label htmlFor="jobGrade" className="block text-sm font-medium text-gray-700">
-              Job Grade (Roman Numeral)
+              Job Grade (Roman Numeral) <span className="text-red-500">*</span>
             </label>
             <select
               id="jobGrade"
@@ -558,7 +564,7 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
           {formData.employmentType === 'Contract' && (
             <div>
               <label htmlFor="contractEndDate" className="block text-sm font-medium text-gray-700">
-                Contract End Date
+                Contract End Date <span className="text-red-500">*</span>
               </label>
               <input
                 type="date"
@@ -572,22 +578,28 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
           )}
 
           <div>
-            <label htmlFor="jobTitle" className="block text-sm font-medium text-gray-700">Job Title</label>
+            <label htmlFor="jobTitle" className="block text-sm font-medium text-gray-700">
+              Job Title <span className="text-red-500">*</span>
+            </label>
             <input
               type="text"
               id="jobTitle"
               value={formData.jobTitle}
               onChange={(e) => setFormData(prev => ({ ...prev, jobTitle: e.target.value }))}
               className="input mt-1"
+              required
             />
           </div>
           <div>
-            <label htmlFor="departmentId" className="block text-sm font-medium text-gray-700">Department</label>
+            <label htmlFor="departmentId" className="block text-sm font-medium text-gray-700">
+              Department <span className="text-red-500">*</span>
+            </label>
             <select
               id="departmentId"
               value={formData.departmentId}
               onChange={(e) => setFormData(prev => ({ ...prev, departmentId: e.target.value }))}
               className="input mt-1"
+              required
             >
               <option value="">Select...</option>
               {departments.map(dept => (
@@ -660,7 +672,9 @@ export const EmployeeForm: React.FC<EmployeeFormProps> = ({
         <h3 className="text-lg font-medium text-gray-900">Work Details</h3>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
-            <label htmlFor="staffId" className="block text-sm font-medium text-gray-700">Staff ID</label>
+            <label htmlFor="staffId" className="block text-sm font-medium text-gray-700">
+              Staff ID <span className="text-red-500">*</span>
+            </label>
             <input
               type="text"
               id="staffId"
