@@ -94,18 +94,21 @@ export const getEmployees = async () => {
   try {
     const q = query(collection(db, COLLECTION), orderBy('createdAt', 'desc'));
     const snapshot = await getDocs(q);
-    return snapshot.docs.map(doc => ({
-      id: doc.id,
-      ...doc.data(),
-      dateOfBirth: doc.data().dateOfBirth?.toDate(),
-      dateJoined: doc.data().dateJoined?.toDate(),
-      dateLeft: doc.data().dateLeft?.toDate(),
-      createdAt: doc.data().createdAt?.toDate(),
-      updatedAt: doc.data().updatedAt?.toDate(),
-    })) as Employee[];
+    const employees = snapshot.docs.map(doc => {
+      const data = doc.data();
+      return {
+        ...data,
+        id: doc.id,
+        dateOfBirth: data.dateOfBirth ? new Date(data.dateOfBirth) : null,
+        dateJoined: data.dateJoined?.toDate?.() || null,
+        dateLeft: data.dateLeft?.toDate?.() || null,
+        createdAt: data.createdAt?.toDate?.() || new Date(),
+        updatedAt: data.updatedAt?.toDate?.() || new Date(),
+      };
+    });
+    return employees as Employee[];
   } catch (error) {
-    console.error('Error fetching employees:', error);
-    throw error;
+    console.error('Error fetching employees:', error);    throw error;
   }
 };
 
